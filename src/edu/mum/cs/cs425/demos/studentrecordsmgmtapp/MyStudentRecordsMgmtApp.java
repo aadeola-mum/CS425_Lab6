@@ -4,6 +4,7 @@ package edu.mum.cs.cs425.demos.studentrecordsmgmtapp;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 
 import edu.mum.cs.cs425.demos.studentrecordsmgmtapp.model.Student;
@@ -14,7 +15,7 @@ public class MyStudentRecordsMgmtApp {
 		MyStudentRecordsMgmtApp myStd = new MyStudentRecordsMgmtApp();
 		//myStd.fillData();
 		
-		int[] numArr = new int[]{9,54,89,19,9,11,0,12,100,76};
+		int[] numArr = new int[]{9,54,89,49, 35, 19,9,11,0,12,100,76};
 		myStd.printHelloWorld(numArr);
 		
 		myStd.findSecondBiggest(numArr);
@@ -50,8 +51,9 @@ public class MyStudentRecordsMgmtApp {
 
 			@Override
 			public int compare(Student s1, Student s2) {
-				// TODO Auto-generated method stub
-				return s1.getDateOfAdmission().compareTo(s2.getDateOfAdmission());
+				Date d1 = new Date(s1.getDateOfAdmission());
+				Date d2 = new Date(s2.getDateOfAdmission());
+				return d1.compareTo(d2);
 			}
 		});
 		
@@ -65,9 +67,10 @@ public class MyStudentRecordsMgmtApp {
 	void printHelloWorld(int[] arr) {
 		for(int n : arr) {
 			if(n < 5 && n < 7) continue;
-			if(n%5 == 0) System.out.println("Hello");
+			if(n%5 == 0 && n%7 == 0) System.out.println("HelloWorld");
+			else if(n%5 == 0) System.out.println("Hello");
 			else if(n%7 == 0) System.out.println("World");
-			else if(n%5 == 0 && n%7 == 0) System.out.println("HelloWorld");
+			
 			else ;//System.out.println("");
 		}
 	}

@@ -10,8 +10,7 @@ import java.util.Date;
  *
  */
 public class Student implements Comparable<Student> {
-	String studentId, name;
-	Date dateOfAdmission;
+	String studentId, name, dateOfAdmission;
 
 	/**
 	 * 
@@ -29,14 +28,14 @@ public class Student implements Comparable<Student> {
 		super();
 		this.studentId = studentId;
 		this.name = name;
-		this.dateOfAdmission = new Date(dateOfAdmission);
+		this.dateOfAdmission = dateOfAdmission;
 	}
 	
 	public boolean isPlatinumAlumni() {
 		Date today = new Date();
 		int todayYear = today.getYear();
 		
-		Date admDate = dateOfAdmission;
+		Date admDate = new Date(dateOfAdmission);
 		int admYear = admDate.getYear();
 		
 		return (todayYear - admYear) >= 30 ? true : false;
@@ -73,7 +72,7 @@ public class Student implements Comparable<Student> {
 	/**
 	 * @return the dateOfAdmission
 	 */
-	public Date getDateOfAdmission() {
+	public String getDateOfAdmission() {
 		return dateOfAdmission;
 	}
 
@@ -81,7 +80,7 @@ public class Student implements Comparable<Student> {
 	 * @param dateOfAdmission the dateOfAdmission to set
 	 */
 	public void setDateOfAdmission(String dateOfAdmission) {
-		this.dateOfAdmission = new Date(dateOfAdmission);
+		this.dateOfAdmission = dateOfAdmission;
 	}
 
 	@Override
